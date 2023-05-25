@@ -42,6 +42,6 @@ public class PeopleController {
     public String create(@ModelAttribute("person") Person person) {
         personDAO.save(person);
 
-        return "redirect/people";
+        return "redirect:/people";
     }
 }
