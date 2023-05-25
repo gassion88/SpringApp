@@ -39,3 +39,4 @@ build/
 *.xml
 .idea/misc.xml
 .idea/vcs.xml
+.idea/httpRequests/http-client.cookies
