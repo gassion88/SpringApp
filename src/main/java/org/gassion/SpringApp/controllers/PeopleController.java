@@ -20,11 +20,15 @@ public class PeopleController {
 
     @GetMapping()
     public String index(Model model) {
-        return null;
+        model.addAttribute("people", personDAO.index());
+
+        return "people/index";
     }
 
     @GetMapping("/{id}")
     public String show(@PathVariable("id") int id, Model model) {
-        return null;
+        model.addAttribute("people", personDAO.show(id));
+
+        return "people/show";
     }
 }
