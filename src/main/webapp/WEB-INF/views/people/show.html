@@ -7,5 +7,7 @@
 <body>
 <p th:text="${people.getName()}">VALUE</p>
 <p th:text="${people.getId()}">VALUE</p>
+
+<a th:href="@{/people/{id}/edit(id=${people.getId()})}"
 </body>
 </html>
