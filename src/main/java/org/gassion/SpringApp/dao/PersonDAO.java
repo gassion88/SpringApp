@@ -1,12 +1,14 @@
 package org.gassion.SpringApp.dao;
 
 import org.gassion.SpringApp.models.Person;
+import org.gassion.SpringApp.util.PersonValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class PersonDAO {
@@ -19,6 +21,11 @@ public class PersonDAO {
 
     public List<Person> index() {
         return jdbcTemplate.query("SELECT * FROM Person", new BeanPropertyRowMapper<>(Person.class));
+    }
+
+    public Optional<Person> show(String email) {
+        return jdbcTemplate.query("SELECT * FROM Person WHERE email=?", new Object[]{email},
+                new BeanPropertyRowMapper<>(Person.class)).stream().findAny();
     }
 
     public Person show(int id) {
