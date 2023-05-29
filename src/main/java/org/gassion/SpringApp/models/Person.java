@@ -1,9 +1,6 @@
 package org.gassion.SpringApp.models;
 
-import jakarta.validation.constraints.Email;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotEmpty;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 
 public class Person {
     private int id;
@@ -19,9 +16,8 @@ public class Person {
     @Email(message = "Email should be valid")
     private String email;
 
+    @Pattern(regexp = "[A-Z]\\w+, [A-Z]\\w+, \\d{6}", message = "Address format : Country, City, postal code(6 digits)")
     private String address;
-
-
 
     public Person() {
     }
